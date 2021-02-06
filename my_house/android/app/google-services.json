@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "319316080672",
+    "project_id": "houseexpenseapp",
+    "storage_bucket": "houseexpenseapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:319316080672:android:145f02ee76df6bae3ba445",
+        "android_client_info": {
+          "package_name": "com.appkode.myhouse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "319316080672-sei6t8perlggkqb2bsp19opvrjscebqj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0jYzct9omzpMN9Xri13KEdfvCsGbLLT0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "319316080672-sei6t8perlggkqb2bsp19opvrjscebqj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

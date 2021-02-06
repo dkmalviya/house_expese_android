@@ -1,11 +1,17 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gradient_widgets/gradient_widgets.dart';
+import 'package:myhouse/app/constant/AppConstant.dart';
 import 'package:myhouse/app/constant/data.dart';
+import 'package:myhouse/app/models/UserInfoModel.dart';
+import 'package:myhouse/app/utils/SharedPreferenceUtils.dart';
 import 'package:myhouse/app/utils/utils.dart';
 import 'package:myhouse/app/widgets/ExpenseChartWidget.dart';
 import 'package:myhouse/app/widgets/MyAppBar.dart';
+import 'package:myhouse/main.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'indicator.dart';
@@ -18,6 +24,32 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
   int touchedIndex;
+
+  SharedPreferenceUtils _sharedPreferenceUtils=SharedPreferenceUtils();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+
+
+    loadUserDetails();
+  }
+
+  loadUserDetails() async{
+   final tempInfo= json.decode(await _sharedPreferenceUtils.readEncryptedValues(KEY_USER_INFO));
+
+    setState(() {
+      MyApp.userInfoModel.userId=tempInfo["userId"];
+      MyApp.userInfoModel.isOwnerOfHouse=tempInfo["isOwnerOfHouse"];
+      MyApp.userInfoModel.currentHouseId=tempInfo["currentHouseId"];
+      MyApp.userInfoModel.mobileNumber=tempInfo["mobileNumber"];
+      MyApp.userInfoModel.email=tempInfo["email"];
+      MyApp.userInfoModel.fullName=tempInfo["fullName"];
+    });
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,15 +76,14 @@ class _DashboardState extends State<Dashboard> {
             children: <Widget>[
               UserAccountsDrawerHeader(
 
-                accountEmail: Text("deepeshmalviya@outlook.com"),
-                accountName: Text("Deepesh Malviya"),
+                accountEmail: Text(MyApp.userInfoModel.mobileNumber),
+                accountName: Text(MyApp.userInfoModel.fullName),
                 currentAccountPicture: CircleAvatar(
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(50),
                     child: Center(
-                      child: Image(
-                          image: NetworkImage(
-                              "https://s3.amazonaws.com/uifaces/faces/twitter/anton0kurilov/128.jpg")
+                      child: Icon(
+                        Icons.add
                       ),
                     ),
                   ),

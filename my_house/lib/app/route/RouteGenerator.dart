@@ -8,6 +8,8 @@ import 'package:myhouse/app/ui/favorite/Favorite.dart';
 import 'package:myhouse/app/ui/house/HouseSummary.dart';
 import 'package:myhouse/app/ui/income/AddIncome.dart';
 import 'package:myhouse/app/ui/income/IncomeSummary.dart';
+import 'package:myhouse/app/ui/prelogin/LoginScreen.dart';
+import 'package:myhouse/app/ui/prelogin/RegistrationScreen.dart';
 import 'package:myhouse/app/ui/prelogin/SplashScreen.dart';
 import 'package:myhouse/app/ui/reminder/Reminder.dart';
 import 'package:myhouse/app/ui/reports/ExpenseMonthlySummary.dart';
@@ -19,7 +21,9 @@ class RouteGenerator {
 
     switch (settings.name) {
       case '/':
-        return MaterialPageRoute(builder: (_) => Dashboard());
+        return MaterialPageRoute(builder: (_) => LoginScreen());
+      case '/registration':
+        return MaterialPageRoute(builder: (_) => RegistrationScreen());
       case '/home':
         return MaterialPageRoute(builder: (_) => Dashboard());
       case '/expense_summary':
@@ -40,9 +44,9 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => AddIncome());
       case '/add_reminder':
         return MaterialPageRoute(builder: (_) => AddIncome());
-        case '/password_summary':
+      case '/password_summary':
         return MaterialPageRoute(builder: (_) => CredentialsHome());
-        case '/add_password':
+      case '/add_password':
         return MaterialPageRoute(builder: (_) => AddNewCredential());
 
 

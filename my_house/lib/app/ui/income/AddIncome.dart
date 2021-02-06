@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:myhouse/app/models/IncomeModel.dart';
 import 'package:myhouse/app/utils/utils.dart';
+import 'package:myhouse/app/view_models/IncomeViewModel.dart';
 import 'package:myhouse/app/widgets/MyAppBar.dart';
+import 'package:provider/provider.dart';
 class AddIncome extends StatefulWidget {
 
 
@@ -34,6 +37,8 @@ class _AddIncomeState extends State<AddIncome> {
 
   @override
   Widget build(BuildContext context) {
+
+    //final productProvider = Provider.of<IncomeViewModel>(context);
 
 
     final incomeSourceSelector=Container(
@@ -144,8 +149,8 @@ class _AddIncomeState extends State<AddIncome> {
                 Container(
                   width: 140,
                   child: RaisedButton(
-                    onPressed: (){
-
+                    onPressed: () async {
+            //          await productProvider.addIncome(IncomeModel(id: "123",incomeSourceType: "Salary",mode: "Online",houseMember: "123",amount: "20000"));
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(12.0),

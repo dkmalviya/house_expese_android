@@ -18,11 +18,21 @@ dependencies:
   fl_chart: ^0.11.0
   gradient_widgets: ^0.5.1
   autocomplete_textfield: ^1.7.3
-  local_auth: ^0.4.0+1
+  local_auth: ^0.6.3+4
   flutter_secure_storage: ^3.3.3
   encrypt: ^4.0.0
+  flutter_spinkit: ^4.1.2+1
   tuple: ^1.0.3
   crypto: ^2.1.4
+  firebase_core: "0.7.0"
+  firebase_auth: "^0.20.0+1"
+  cloud_firestore: "^0.16.0"
+  provider: ^3.0.0+1
+  corsac_jwt: ^0.2.2
+  jaguar_jwt: ^2.1.6
+
+
+  get_it: ^5.0.6
 
 dev_dependencies:
   flutter_test:
