@@ -5,6 +5,7 @@ import 'package:myhouse/app/ui/credentials/CredentialsHome.dart';
 import 'package:myhouse/app/ui/dashboard/Dashboard.dart';
 import 'package:myhouse/app/ui/expense/ExpenseSummary.dart';
 import 'package:myhouse/app/ui/favorite/Favorite.dart';
+import 'package:myhouse/app/ui/house/AddHosueScreen.dart';
 import 'package:myhouse/app/ui/house/HouseSummary.dart';
 import 'package:myhouse/app/ui/income/AddIncome.dart';
 import 'package:myhouse/app/ui/income/IncomeSummary.dart';
@@ -15,10 +16,7 @@ import 'package:myhouse/app/ui/reminder/Reminder.dart';
 import 'package:myhouse/app/ui/reports/ExpenseMonthlySummary.dart';
 
 class RouteGenerator {
-
   static Route<dynamic> generateRoute(RouteSettings settings) {
-
-
     switch (settings.name) {
       case '/':
         return MaterialPageRoute(builder: (_) => LoginScreen());
@@ -48,9 +46,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => CredentialsHome());
       case '/add_password':
         return MaterialPageRoute(builder: (_) => AddNewCredential());
-
-
-
+      case '/add_house':
+        return MaterialPageRoute(builder: (_) => AddHouseScreen());
 
       default:
         return _errorRoute();

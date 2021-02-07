@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:myhouse/app/Locator.dart';
+import 'package:myhouse/app/models/HouseModel.dart';
 import 'package:myhouse/app/models/UserInfoModel.dart';
 import 'package:myhouse/app/view_models/IncomeViewModel.dart';
 import 'package:provider/provider.dart';
@@ -20,6 +21,7 @@ Future<void> main() async{
 class MyApp extends StatefulWidget {
 
   static UserInfoModel userInfoModel=UserInfoModel();
+  static HouseModel houseModel=HouseModel();
   // This widget is the root of your application.
   @override
   _MyAppState createState() => _MyAppState();

@@ -19,20 +19,22 @@ class ProfileService{
   return profileDetails;
   }
 
+
+  //need to complete
+
   Future<QuerySnapshot> getUserSettings() async{
   String uid = await _userService.getUserId();
   QuerySnapshot profileData = await _firestore.collection('profileSetting').where('userId',isEqualTo: uid).get();
   return profileData;
   }
 
-  Future<void> updateAccountDetails(String fullName, String mobileNumber) async{
+  Future<void> updateHouseOfUser(String houseId) async{
   String uid = await _userService.getUserId();
   QuerySnapshot userData = await _firestore.collection('users').where('userId',isEqualTo: uid).get();
   String documentId = userData.docs[0].id;
 
-  return _firestore.collection('users').doc(documentId).set({
-  'fullName': fullName,
-  'mobileNumber': mobileNumber,
+  return _firestore.collection('users').doc(documentId).update({
+  'currentHouseId': houseId,
   'userId': uid
   });
   }

@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:myhouse/app/constant/data.dart';
 import 'package:myhouse/app/utils/utils.dart';
 import 'package:myhouse/app/widgets/MyAppBar.dart';
+import 'package:myhouse/main.dart';
 class HouseSummary extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -42,7 +43,7 @@ class HouseSummary extends StatelessWidget {
                           .of(context)
                           .size
                           .width,
-                      height: 170,
+                      height: 180,
                       decoration: BoxDecoration(
 
                         gradient: LinearGradient(
@@ -76,7 +77,7 @@ class HouseSummary extends StatelessWidget {
 
                                 Icon(FontAwesomeIcons.home,color: Colors.white,),
                                 SizedBox(width: 20,),
-                                Expanded(child: Text("B-201 Regalia residency, Mumbai-Pune Highway Bavdhan Pune 411021",textAlign: TextAlign.justify,style: TextStyle(color: Colors.white,fontSize: 14,fontWeight: FontWeight.w500),maxLines: 5,overflow: TextOverflow.ellipsis,))
+                                Expanded(child: Text("${MyApp.houseModel.houseNumber} ${MyApp.houseModel.buildingName}, ${MyApp.houseModel.street}, ${MyApp.houseModel.area}, ${MyApp.houseModel.landmark}, ${MyApp.houseModel.city}, ${MyApp.houseModel.pincode}",textAlign: TextAlign.justify,style: TextStyle(color: Colors.white,fontSize: 14,fontWeight: FontWeight.w500),maxLines: 3,overflow: TextOverflow.ellipsis,))
 
                               ],
                             ),

@@ -31,14 +31,11 @@ class _DashboardState extends State<Dashboard> {
   void initState() {
     // TODO: implement initState
     super.initState();
-
-
-
     loadUserDetails();
   }
 
   loadUserDetails() async{
-   final tempInfo= json.decode(await _sharedPreferenceUtils.readEncryptedValues(KEY_USER_INFO));
+    final tempInfo= json.decode(await _sharedPreferenceUtils.readEncryptedValues(KEY_USER_INFO));
 
     setState(() {
       MyApp.userInfoModel.userId=tempInfo["userId"];
@@ -47,6 +44,10 @@ class _DashboardState extends State<Dashboard> {
       MyApp.userInfoModel.mobileNumber=tempInfo["mobileNumber"];
       MyApp.userInfoModel.email=tempInfo["email"];
       MyApp.userInfoModel.fullName=tempInfo["fullName"];
+
+      if(MyApp.userInfoModel.currentHouseId!=MyApp.houseModel.houseId){
+        //Update House ID
+      }
     });
 
   }
@@ -59,6 +60,7 @@ class _DashboardState extends State<Dashboard> {
 
 
       drawer: Drawer(
+
 
         child: Container(
           decoration: BoxDecoration(
@@ -83,7 +85,7 @@ class _DashboardState extends State<Dashboard> {
                     borderRadius: BorderRadius.circular(50),
                     child: Center(
                       child: Icon(
-                        Icons.add
+                          Icons.add
                       ),
                     ),
                   ),
@@ -103,6 +105,18 @@ class _DashboardState extends State<Dashboard> {
                 },
               ),
 
+              ListTile(
+                title: Text("House",
+                  style: TextStyle(
+                    color: hexToColor("#FFFFF0"),
+                  ),),
+                leading: Icon(
+                  FontAwesomeIcons.houseUser, color: hexToColor("#FFFFF0"),),
+
+                onTap: () {
+                  Navigator.of(context).popAndPushNamed("/add_house");
+                },
+              ),
               ListTile(
                 title: Text("Expense",
                   style: TextStyle(
@@ -358,16 +372,16 @@ class _DashboardState extends State<Dashboard> {
                                     BorderRadius.all(Radius.circular(4.0),),
                                   ),
                                   child: InkWell(
-                                     // inkwell color
+                                    // inkwell color
                                     child: Column(
                                       children: <Widget>[
                                         SizedBox(width: 56, height: 56, child: Icon(dashIcons[index]['icon'],color: Colors.white,)),
                                         Text(
                                             dashIcons[index]['title'],
-                                          style:TextStyle(
-                                            fontSize: 10,
-                                            color: Colors.white,
-                                          )
+                                            style:TextStyle(
+                                              fontSize: 10,
+                                              color: Colors.white,
+                                            )
                                         )
                                       ],
                                     ),
@@ -377,7 +391,7 @@ class _DashboardState extends State<Dashboard> {
 
 
 
-                                        Navigator.of(context).pushNamed(dashIcons[index]['screen']);
+                                      Navigator.of(context).pushNamed(dashIcons[index]['screen']);
 
 
                                     },
